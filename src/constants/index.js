@@ -29,48 +29,67 @@ export const categoriesData = [
         title: 'Forest',
         image: require('../../assets/images/forest.png')
     },
-    
+
 ]
 export const destinationData = [
     {
-        title: 'Osaka Castle',
-        duration: '12 Days',
-        distance: '400 KM',
-        weather: '20 C',
-        price: 1200,
-        shortDescription: "Osaka Castle is a Japanese castle in Chūō-ku, Osaka, Japan. The castle is one of Japan's most famous landmarks.",
-        longDescription: "Osaka Castle is a Japanese castle in Chūō-ku, Osaka, Japan. The castle is one of Japan's most famous landmarks and it played a major role in the unification of Japan during the sixteenth century of the Azuchi-Momoyama period.",
-        image: require('../../assets/images/hotel.png')
+        title: 'Nusa Penida',
+        duration: '3 Days',
+        distance: '40 KM',
+        weather: '28 C',
+        price: 250,
+        shortDescription: "Nusa Penida is a serene island off the southeast coast of Bali, known for its breathtaking landscapes and pristine beaches.",
+        longDescription: "Nusa Penida is an island located southeast of Bali, separated by the Badung Strait. Known for its unspoiled beauty, it features a mix of cliffs, turquoise waters, and white-sand beaches. Notable landmarks include Kelingking Beach, Angel's Billabong, and Broken Beach. The island offers a quiet escape from the hustle and bustle of Bali's main tourist destinations.",
+        image: require('../../assets/images/nusapenida.png')
     },
     {
-        title: 'Island Itsukushima Shrine',
-        duration: '7 Days',
-        distance: '450 KM',
-        weather: '30 C',
-        price: 3000,
-        shortDescription: "The Itsukushima shrine is one of Japan's most popular tourist attractions.",
-        longDescription: "Itsukushima Shrine is a Shinto shrine on the island of Itsukushima, best known for its 'floating' torii gate. It is in the city of Hatsukaichi in Hiroshima Prefecture in Japan, accessible from the mainland by ferry at Miyajimaguchi Station.",
-        image: require('../../assets/images/island.png')
+        title: 'Ulun Danu Beratan Temple',
+        duration: '1 Day',
+        distance: '60 KM',
+        weather: '26 C',
+        price: 200,
+        shortDescription: "Ulun Danu Beratan Temple is a picturesque landmark located on the western side of the Beratan Lake in Bali, Indonesia.",
+        longDescription: "Pura Ulun Danu Beratan, or Pura Bratan, is a major water temple in Bali. This temple complex is located on the shores of Lake Bratan in the mountains near Bedugul. It serves the entire region in the outflow area and is dedicated to the goddess of lakes and rivers, Dewi Danu. The scenic views of the temple on the edge of the lake backed by the majestic mountain range has made it a popular tourist destination in Bali.",
+        image: require('../../assets/images/ulundanu.png')
     },
-    
     {
-        title: 'Babusar Top',
+        title: 'Sekumpul Waterfall',
+        duration: '1 Day',
+        distance: '70 KM',
+        weather: '27 C',
+        price: 150,
+        shortDescription: "Sekumpul Waterfall is known as one of Bali’s most scenic waterfalls, located in the northern part of the island.",
+        longDescription: "Sekumpul Waterfall is a collection of seven waterfalls located in the village of Sekumpul in northern Bali. The waterfalls are set in a lush jungle setting and are considered to be among the most picturesque on the island. Visitors often trek through the village and forest to reach the waterfall, where they're rewarded with breathtaking views.",
+        image: require('../../assets/images/sekumpul.png')
+    },
+    {
+        title: 'Uluwatu Temple',
+        duration: '2 Days',
+        distance: '40 KM',
+        weather: '28 C',
+        price: 200,
+        shortDescription: "Uluwatu Temple is a Balinese sea temple in Uluwatu, known for its magnificent location, perched on top of a steep cliff.",
+        longDescription: "Uluwatu Temple, or Pura Luhur Uluwatu, is renowned for its magnificent location, perched on top of a cliff approximately 70 meters above sea level. This temple is one of the six key temples believed to be Bali's spiritual pillars, and is known for its scenic beauty, especially during sunset.",
+        image: require('../../assets/images/uluwatu.png')
+    },
+    {
+        title: 'Komodo Island',
         duration: '5 Days',
-        distance: '299 KM',
-        weather: '14 C',
-        price: 1000,
-        shortDescription: "Babusar Top is a mountain pass in Pakistan at the north of the 150 km long in beautiful Kaghan Valley",
-        longDescription: "Babusar Pass or Babusar Top is a mountain pass in Pakistan at the north of the 150 km long Kaghan Valley, connecting it via the Thak Nala with Chilas on the Karakoram Highway. It is the highest point in Kaghan Valley that can be easily accessed by cars.",
-        image: require('../../assets/images/camp.png')
+        distance: '540 KM',
+        weather: '29 C',
+        price: 300,
+        shortDescription: "Komodo Island is famous for its native dragons, pristine beaches, and diverse marine life, making it a UNESCO World Heritage site.",
+        longDescription: "Komodo Island, located within the Lesser Sunda Islands, is the main habitat of the Komodo Dragon, the largest lizard on earth. Apart from its unique wildlife, the island offers beautiful beaches, including the Pink Beach, and boasts a rich marine biodiversity. Diving around Komodo Island provides a unique opportunity to see manta rays, turtles, and sharks in their natural habitat.",
+        image: require('../../assets/images/komodo.png')
     },
     {
-        title: 'Todaiji Temple',
-        duration: '20 Days',
-        distance: '604 KM',
-        weather: '34 C',
-        price: 400,
-        shortDescription: "Todaiji is one of Japan's most famous and significant temples and a landmark of Nara.",
-        longDescription: "Tōdai-ji is a Buddhist temple complex that was once one of the powerful Seven Great Temples, located in the city of Nara, Japan. Though it was originally founded in the year 738 CE, Tōdai-ji was not opened until the year 752 CE.",
-        image: require('../../assets/images/forest.png')
-    },
+        title: 'Mount Bromo',
+        duration: '3 Days',
+        distance: '300 KM',
+        weather: '15 C',
+        price: 200,
+        shortDescription: "Mount Bromo, located in East Java, is one of Indonesia's most iconic and well-known volcanoes.",
+        longDescription: "Mount Bromo is an active volcano and part of the Tengger massif, in East Java, Indonesia. It stands at 2,329 meters and is one of the most visited tourist attractions in East Java, Indonesia. The volcano belongs to the Bromo Tengger Semeru National Park. The name of Bromo derived from the Javanese pronunciation of Brahma, the Hindu god of creation.",
+        image: require('../../assets/images/bromo.png')
+    }
 ]

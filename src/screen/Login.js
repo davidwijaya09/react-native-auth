@@ -20,7 +20,7 @@ export default function Login({ navigation }) {
         }
     }
 
-    
+
 
     const onRegister = async () => {
         navigation.navigate('Register');
@@ -28,6 +28,10 @@ export default function Login({ navigation }) {
 
     const onCreateItinerary = async () => {
         navigation.navigate('CreateItinerary');
+    }
+
+    const onExploreLayout = async () => {
+        navigation.navigate('ExploreLayout');
     }
 
     const onItineraryLayout = async () => {
@@ -50,18 +54,23 @@ export default function Login({ navigation }) {
 
     return (
         <View style={styles.container}>
+            {/* login using AsyncStorage */}
             <TextInput
                 onChangeText={(value) => setUsername(value.toLowerCase())}
                 placeholder='Username'
             />
             <TextInput secureTextEntry onChangeText={(value) => setPassword(value)} placeholder='Password' />
+            <Text>username : {username}</Text>
+            <Text>password : {password}</Text>
+
+
             <Button title='Login' onPress={onSubmit} />
             <Button title='Register' onPress={onRegister} />
             <Button title='Create Itinerary' onPress={onCreateItinerary}></Button>
+            <Button title='Explore Layout' onPress={onExploreLayout}></Button>
             <Button title='Itinerary Layout' onPress={onItineraryLayout}></Button>
 
-            <Text>username : {username}</Text>
-            <Text>password : {password}</Text>
+
         </View>
     )
 }

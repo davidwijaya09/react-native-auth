@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -8,26 +8,32 @@ import Home from '../screen/Home';
 import Login from '../screen/Login';
 import Register from '../screen/Register';
 import CreateItinerary from '../screen/CreateItinerary';
-import ItineraryLayout from '../screen/IteneraryLayout';
+import ExploreLayout from '../screen/ExploreLayout';
+import ItineraryLayout from '../screen/ItineraryLayout';
+import DestinationScreen from '../screen/DestinationScreen';
+import ItineraryDetScreen from '../screen/ItineraryDetScreen';
 
 const Stack = createStackNavigator();
 
 
 export default function AppNavigation() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName='Login' screenOptions={{
-                headerShown: false
-            }}>
-                <Stack.Screen name="Home" component={Home} />
-                <Stack.Screen name="Login" component={Login} />
-                <Stack.Screen name="Register" component={Register} />
-                <Stack.Screen name="CreateItinerary" component={CreateItinerary} />
-                <Stack.Screen name="ItineraryLayout" component={ItineraryLayout} />
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Login' screenOptions={{
+        headerShown: false
+      }}>
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Register" component={Register} />
+        <Stack.Screen name="CreateItinerary" component={CreateItinerary} />
+        <Stack.Screen name="ExploreLayout" component={ExploreLayout} />
+        <Stack.Screen name="ItineraryLayout" component={ItineraryLayout} />
+        <Stack.Screen name="Destination" component={DestinationScreen} />
+        <Stack.Screen name="Itinerary" component={ItineraryDetScreen} />
 
-            </Stack.Navigator>
-        </NavigationContainer>
-    )
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
 
 const styles = StyleSheet.create({
