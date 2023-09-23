@@ -1,85 +1,142 @@
-import { View, Text, Image, TouchableOpacity, ScrollView, Platform } from 'react-native'
+import { Linking, ActionSheetIOS, View, Text, Image, TouchableOpacity, ScrollView, Platform, StyleSheet } from 'react-native'
 import React, { useState } from 'react'
-import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
+import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { StatusBar } from 'expo-status-bar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ChevronLeftIcon } from 'react-native-heroicons/outline';
-import { ClockIcon, HeartIcon, MapPinIcon, SunIcon } from 'react-native-heroicons/solid';
+import { ClockIcon, ShareIcon, MapPinIcon, SunIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { theme } from '../theme';
+import Activities from '../components/activities';
+import { TextInput } from 'react-native-gesture-handler';
+
 
 const ios = Platform.OS == 'ios';
-const topMargin = ios? '': 'mt-10';
+const topMargin = ios ? 'mt-1' : 'mt-10';
+
+const shareToEmail = (subject, body) => {
+    const emailURL = `https://mail.google.com/mail/u/0/?view=cm&fs=1&to=&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}&ui=2&tf=1`;
+    Linking.openURL(emailURL).catch((err) => console.error('An error occurred', err));
+};
 
 export default function ItineraryDetScreen(props) {
     const item = props.route.params;
     const navigation = useNavigation();
     const [isFavourite, toggleFavourite] = useState(false);
 
-  return (
-    <View className="bg-white flex-1">
-        {/* destination image */}
-        <Image source={item.image} style={{width: wp(100), height: hp(55)}} />
-        <StatusBar style={'light'} />
+    const onShare = () => {
+        const text = `Check out this itinerary: ${item?.title}`;
+        const url = 'https://yourWebsite.com/itineraryLink'; // replace with your link
 
-        {/* back button */}
-        <SafeAreaView className={"flex-row justify-between items-center w-full absolute " + topMargin}>
-            <TouchableOpacity
-                onPress={()=> navigation.goBack()}
-                className="p-2 rounded-full ml-4"
-                style={{backgroundColor: 'rgba(255,255,255,0.5)'}}
-            >
-                <ChevronLeftIcon size={wp(7)} strokeWidth={4} color="white" />
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={()=> toggleFavourite(!isFavourite)}
-                className="p-2 rounded-full mr-4"
-                style={{backgroundColor: 'rgba(255,255,255,0.5)'}}
-            >
-                <HeartIcon size={wp(7)} strokeWidth={4} color={isFavourite? "red": "white"} />
-            </TouchableOpacity>
-        </SafeAreaView>
+        const subject = "Check out this itinerary!";
+        const body = `${text} - ${url}`;
+        shareToEmail(subject, body);
+    };
 
-        {/* title & descritpion & booking button */}
-        <View style={{borderTopLeftRadius: 40, borderTopRightRadius: 40}} className="px-5 flex flex-1 justify-between bg-white pt-8 -mt-14">
-            <ScrollView showsVerticalScrollIndicator={false} className="space-y-5">
-                <View className="flex-row justify-between items-start">
-                    <Text style={{fontSize: wp(7)}} className="font-bold flex-1 text-neutral-700">
-                        {item?.title}
-                    </Text>
-                    <Text style={{fontSize: wp(7), color: theme.text}} className="font-semibold">
-                        $ {item?.price}
-                    </Text>
-                </View>
-                <Text style={{fontSize: wp(3.7)}} className="text-neutral-700 tracking-wide mb-2">{item?.longDescription}</Text>
-                <View className="flex-row justify-between mx-1">
-                    <View className="flex-row space-x-2 items-start">
-                        <ClockIcon size={wp(7)} color="skyblue" />
-                        <View className="flex space-y-2">
-                            <Text style={{fontSize: wp(4.5)}} className="font-bold text-neutral-700">{item.totalDays}</Text>
-                            <Text className="text-neutral-600 tracking-wide">Duration</Text>
-                        </View>
+    return (
+        <View className="bg-white flex-1">
+            {/* destination image */}
+            <Image source={item.image} style={{ width: wp(100), height: hp(20) }} />
+            <StatusBar style={'light'} />
+
+            {/* back button */}
+            <SafeAreaView className={"flex-row justify-between items-center w-full absolute p-4 " + topMargin}>
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}
+                    className="p-2 rounded-full"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}
+                >
+                    <ChevronLeftIcon size={wp(7)} strokeWidth={4} color="white" />
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                    onPress={onShare}
+                    className="p-2 rounded-full"
+                    style={{ backgroundColor: 'rgba(255,255,255,0.5)' }}
+                >
+                    <ShareIcon size={wp(7)} strokeWidth={4} color="white" />
+                </TouchableOpacity>
+            </SafeAreaView>
+
+            {/* title & descritpion & booking button */}
+
+
+            <View style={{ borderTopLeftRadius: 40, borderTopRightRadius: 40 }} className="px-5 flex flex-1 justify-between bg-white pt-10 mt-10">
+                <ScrollView showsVerticalScrollIndicator={false} className="space-y-5">
+
+                    <View className="flex-row justify-between items-start">
+                        <Text style={{ fontSize: wp(7) }} className="font-bold flex-1 text-neutral-700">
+                            {item?.title}
+                        </Text>
+                        {/* <Text style={{ fontSize: wp(7), color: theme.text }} className="font-semibold">
+                            $ {item?.price}
+                        </Text> */}
                     </View>
-                    <View className="flex-row space-x-2 items-start">
-                        <MapPinIcon size={wp(7)} color="#f87171" />
-                        <View className="flex space-y-2">
-                            <Text style={{fontSize: wp(4.5)}} className="font-bold text-neutral-700">{item.totalDestination}</Text>
-                            <Text className="text-neutral-600 tracking-wide">Distance</Text>
-                        </View>
+
+                    <Text style={{ fontSize: wp(3.7), marginBottom: -10 }} className="text-neutral-700 tracking-wide mb-2">15/12/2022 - 22/12/2022</Text>
+                    <Text style={{ fontSize: wp(3.7) }} className="text-neutral-700 tracking-wide mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id augue sodales, rhoncus tortor at, rhoncus ex.</Text>
+
+
+                    <TouchableOpacity
+                        onPress={() => {
+                            // Handle the "Add Route" button press here
+                            // You can navigate to the add route screen or perform any other action
+                        }}
+                        style={{
+                            backgroundColor: '#0064D2',
+                            padding: wp(3), // Increase the padding
+                            borderRadius: wp(4), // Increase the border radius
+                            marginTop: wp(2), // Increase the margin top
+                            alignSelf: 'flex-start',
+                            flexDirection: 'row',
+                            alignItems: 'center',
+                            width: wp(89),
+                        }}>
+                        <Image
+                            source={{
+                                uri: 'https://img.freepik.com/free-photo/3d-view-map_23-2150471734.jpg?w=1380&t=st=1695443884~exp=1695444484~hmac=2648c9c1534f00c64debb6f766d7f4331123d2e07fad8ec45ad71baa'
+                            }}
+                            style={{ width: wp(40), height: wp(25), borderRadius: 10, marginLeft: 9 }} // Adjust the width and height as needed
+                        />
+                        <Text style={{ color: 'white', fontSize: 20,  marginLeft: 32 }}>View Route </Text>
+                    </TouchableOpacity>
+
+
+
+                    <Text style={{ fontSize: wp(4), fontWeight: 'bold', marginBottom: -20 }} className="text-neutral-700 tracking-wide mb-2">Day 1 (15/12/2022)</Text>
+
+                    <View>
+                        <Activities />
                     </View>
-                    <View className="flex-row space-x-2 items-start">
-                        <SunIcon size={wp(7)} color="orange" />
-                        <View className="flex space-y-2">
-                            <Text style={{fontSize: wp(4.5)}} className="font-bold text-neutral-700">{item.totalPeople}</Text>
-                            <Text className="text-neutral-600 tracking-wide">Sunny</Text>
-                        </View>
-                    </View>
-                </View>
-            </ScrollView>
-            <TouchableOpacity style={{backgroundColor: theme.bg(0.8), height: wp(15), width: wp(50)}} className="mb-6 mx-auto flex justify-center items-center rounded-full">
-                <Text className="text-white font-bold" style={{fontSize: wp(5.5)}}>Book now</Text>
-            </TouchableOpacity>
+
+                    <TextInput
+                        style={styles.input}
+                        placeholder="  Add a place"
+                    // editable={!isInputsDisabled}
+                    />
+                </ScrollView>
+            </View>
         </View>
-    </View>
-  )
+    )
 }
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#F5FCFF",
+    },
+    input: {
+        borderWidth: 1,
+        borderRadius: 4,
+        borderColor: "#222",
+        height: 50,
+        paddingLeft: 8,
+        fontSize: 18,
+        justifyContent: "center",
+        width: "90%", // This will give it a consistent width with the City TextInput
+        alignSelf: "center", // This will center the button
+        marginTop: 14,
+    }
+})

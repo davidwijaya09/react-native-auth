@@ -16,10 +16,11 @@ export default function Itineraries() {
     return (
         <View style={{ flex: 1, paddingHorizontal: 10 }}>
             <FlatList
+                scrollEnabled={false}
                 data={itineraryData}
                 renderItem={renderItem}
                 keyExtractor={(item, index) => index.toString()}
-                contentContainerStyle={{ flexDirection: 'column' }}
+                // contentContainerStyle={{ flexDirection: 'column' }}
             />
         </View>
     );
@@ -31,8 +32,10 @@ const ItineraryCard = ({ item, navigation }) => {
         <TouchableOpacity
             onPress={() => navigation.navigate('Itinerary', { ...item })}
             style={{
-                width: wp(44), height: wp(65), marginTop: 1,   // reduced margin top
-                marginBottom: 1
+                width: wp(44), 
+                height: wp(65), 
+                marginTop: 0,   // reduced margin top
+                marginBottom: 0
             }}
             className="flex justify-end relative p-4 py-6 space-y-2 mb-5">
             <Image
@@ -57,7 +60,6 @@ const ItineraryCard = ({ item, navigation }) => {
             <Text style={{ fontSize: wp(2.2) }} className="text-white">{item.totalDays}</Text>
             <Text style={{ fontSize: wp(2.2) }} className="text-white">{item.totalDestination} Destination</Text>
             <Text style={{ fontSize: wp(2.2) }} className="text-white">{item.totalPeople}</Text>
-
         </TouchableOpacity>
     )
 }
