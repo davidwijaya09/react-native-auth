@@ -30,7 +30,6 @@ export default function AppNavigation() {
         <Stack.Screen name="ItineraryLayout" component={ItineraryLayout} />
         <Stack.Screen name="Destination" component={DestinationScreen} />
         <Stack.Screen name="Itinerary" component={ItineraryDetScreen} />
-
       </Stack.Navigator>
     </NavigationContainer>
   )

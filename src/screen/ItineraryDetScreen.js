@@ -83,7 +83,7 @@ export default function ItineraryDetScreen(props) {
                             // You can navigate to the add route screen or perform any other action
                         }}
                         style={{
-                            backgroundColor: '#0064D2',
+                            backgroundColor: '#f7f7f7',
                             padding: wp(3), // Increase the padding
                             borderRadius: wp(4), // Increase the border radius
                             marginTop: wp(2), // Increase the margin top
@@ -91,14 +91,15 @@ export default function ItineraryDetScreen(props) {
                             flexDirection: 'row',
                             alignItems: 'center',
                             width: wp(89),
+                            dropShadow: 80,
                         }}>
                         <Image
                             source={{
                                 uri: 'https://img.freepik.com/free-photo/3d-view-map_23-2150471734.jpg?w=1380&t=st=1695443884~exp=1695444484~hmac=2648c9c1534f00c64debb6f766d7f4331123d2e07fad8ec45ad71baa'
                             }}
-                            style={{ width: wp(40), height: wp(25), borderRadius: 10, marginLeft: 9 }} // Adjust the width and height as needed
+                            style={{ width: wp(40), height: wp(25), borderRadius: 10 }} // Adjust the width and height as needed
                         />
-                        <Text style={{ color: 'white', fontSize: 20,  marginLeft: 32 }}>View Route </Text>
+                        <Text style={{ color: '#0064D2', fontSize: 18, fontWeight: 'bold',  marginLeft: 36 }}>View Route </Text>
                     </TouchableOpacity>
 
 
@@ -129,7 +130,7 @@ const styles = StyleSheet.create({
     },
     input: {
         borderWidth: 1,
-        borderRadius: 4,
+        borderRadius: 10,
         borderColor: "#222",
         height: 50,
         paddingLeft: 8,
@@ -138,5 +139,6 @@ const styles = StyleSheet.create({
         width: "90%", // This will give it a consistent width with the City TextInput
         alignSelf: "center", // This will center the button
         marginTop: 14,
+        marginBottom: 20,
     }
 })

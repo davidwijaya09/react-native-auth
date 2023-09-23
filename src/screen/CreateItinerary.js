@@ -16,7 +16,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import DatePicker from "react-native-modern-datepicker";
 import { getFormatedDate } from "react-native-modern-datepicker";
 
-export default function Home({ navigation }) {
+export default function CreateItinerary({ navigation }) {
     const [isInputsDisabled, setInputsDisabled] = useState(false);
     const [isEnabled, setIsEnabled] = useState(false);
 
@@ -250,13 +250,15 @@ const styles = StyleSheet.create({
         borderRadius: 20, // Tambahkan borderRadius jika Anda ingin sudut modal membulat
     },
     textHeader: {
-        fontSize: 36,
-        marginVertical: 60,
+        fontSize: 30,
+        marginVertical: 10,
+        marginTop: 50,
         color: "#111",
     },
     textSubHeader: {
-        fontSize: 25,
+        fontSize: 20,
         color: "#111",
+        marginBottom: 50,
     },
     inputBtn: {
         borderWidth: 1,

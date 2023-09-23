@@ -19,7 +19,7 @@ export default function ExploreLayout({ navigation }) {
             <ScrollView showsVerticalScrollIndicator={false} className={"space-y-6 " + topMargin}>
                 {/* avatar */}
                 <View className="mx-5 flex-row justify-between items-center mb-10">
-                    <Text style={{ fontSize: wp(7) }} className="font-bold text-neutral-700">Let's Discover</Text>
+                    <Text style={{ fontSize: wp(7) }} className="font-bold text-neutral-700">Let's Explore</Text>
                     <TouchableOpacity>
                         <Image source={require('../../assets/images/avatar.png')} style={{ height: wp(12), width: wp(12) }} />
                     </TouchableOpacity>

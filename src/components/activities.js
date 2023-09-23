@@ -31,7 +31,7 @@ const ActivityCard = ({ item, navigation }) => {
     const [isFavourite, toggleFavourite] = useState(false);
     return (
         <TouchableOpacity
-            onPress={() => navigation.navigate('Activity', { ...item })}
+            onPress={() => navigation.navigate('ActivityDetail', { ...item })}
             style={{
                 width: wp(60),
                 height: wp(55),
@@ -58,8 +58,8 @@ const ActivityCard = ({ item, navigation }) => {
                     borderRadius: wp(5),
                     padding: wp(2),
                     position: 'absolute',
-                    right: -55,
-                    bottom: 10,
+                    right: -80,
+                    bottom: 15,
                 }}>
                 <TrashIcon size={wp(5)} color={isFavourite ? "red" : "white"} />
             </TouchableOpacity>

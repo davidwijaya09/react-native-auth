@@ -47,9 +47,9 @@ export default function DestinationScreen(props) {
                     <Text style={{fontSize: wp(7)}} className="font-bold flex-1 text-neutral-700">
                         {item?.title}
                     </Text>
-                    <Text style={{fontSize: wp(7), color: theme.text}} className="font-semibold">
+                    {/* <Text style={{fontSize: wp(7), color: theme.text}} className="font-semibold">
                         $ {item?.price}
-                    </Text>
+                    </Text> */}
                 </View>
                 <Text style={{fontSize: wp(3.7)}} className="text-neutral-700 tracking-wide mb-2">{item?.longDescription}</Text>
                 <View className="flex-row justify-between mx-1">
@@ -76,9 +76,9 @@ export default function DestinationScreen(props) {
                     </View>
                 </View>
             </ScrollView>
-            <TouchableOpacity style={{backgroundColor: theme.bg(0.8), height: wp(15), width: wp(50)}} className="mb-6 mx-auto flex justify-center items-center rounded-full">
+            {/* <TouchableOpacity style={{backgroundColor: theme.bg(0.8), height: wp(15), width: wp(50)}} className="mb-6 mx-auto flex justify-center items-center rounded-full">
                 <Text className="text-white font-bold" style={{fontSize: wp(5.5)}}>Book now</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
         </View>
     </View>
   )
