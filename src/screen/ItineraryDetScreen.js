@@ -76,33 +76,57 @@ export default function ItineraryDetScreen(props) {
                     <Text style={{ fontSize: wp(3.7), marginBottom: -10 }} className="text-neutral-700 tracking-wide mb-2">15/12/2022 - 22/12/2022</Text>
                     <Text style={{ fontSize: wp(3.7) }} className="text-neutral-700 tracking-wide mb-2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque id augue sodales, rhoncus tortor at, rhoncus ex.</Text>
 
-
-                    <TouchableOpacity
-                        onPress={() => {
-                            // Handle the "Add Route" button press here
-                            // You can navigate to the add route screen or perform any other action
-                        }}
-                        style={{
-                            backgroundColor: '#f7f7f7',
-                            padding: wp(3), // Increase the padding
-                            borderRadius: wp(4), // Increase the border radius
-                            marginTop: wp(2), // Increase the margin top
-                            alignSelf: 'flex-start',
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            width: wp(89),
-                            dropShadow: 80,
-                        }}>
-                        <Image
-                            source={{
-                                uri: 'https://img.freepik.com/free-photo/3d-view-map_23-2150471734.jpg?w=1380&t=st=1695443884~exp=1695444484~hmac=2648c9c1534f00c64debb6f766d7f4331123d2e07fad8ec45ad71baa'
+                    <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
+                        <TouchableOpacity
+                            onPress={() => {
+                                // Handle the "View Route" button press here
+                                // You can navigate to the view route screen or perform any other action
                             }}
-                            style={{ width: wp(40), height: wp(25), borderRadius: 10 }} // Adjust the width and height as needed
-                        />
-                        <Text style={{ color: '#0064D2', fontSize: 18, fontWeight: 'bold',  marginLeft: 36 }}>View Route </Text>
-                    </TouchableOpacity>
+                            style={{
+                                backgroundColor: '#f7f7f7',
+                                padding: wp(3),
+                                borderRadius: wp(4),
+                                flex: 1, // Use flex to make the buttons take equal space horizontally
+                                marginRight: wp(2), // Add some spacing between the buttons
+                            }}
+                        >
+                            <Image
+                                source={{
+                                    uri: 'https://img.freepik.com/free-photo/3d-view-map_23-2150471734.jpg?w=1380&t=st=1695443884~exp=1695444484~hmac=2648c9c1534f00c64debb6f766d7f4331123d2e07fad8ec45ad71baa'
+                                }}
+                                style={{
+                                    width: wp(40), height: wp(25), borderRadius: 10, alignSelf: 'center', // Center the image horizontally
+                                    justifyContent: 'center',
+                                }}
+                            />
+                            <Text style={{ color: '#0064D2', fontSize: 18, fontWeight: 'bold', marginLeft: 36, marginTop: 10 }}>View Route</Text>
+                        </TouchableOpacity>
 
-
+                        <TouchableOpacity
+                            onPress={() => {
+                                // Handle the "Open Chat" button press here
+                                // You can open a chat screen or perform any other action
+                            }}
+                            style={{
+                                backgroundColor: '#f7f7f7',
+                                padding: wp(3),
+                                borderRadius: wp(4),
+                                flex: 1, // Use flex to make the buttons take equal space horizontally
+                                marginLeft: wp(2), // Add some spacing between the buttons
+                            }}
+                        >
+                            <Image
+                                source={{
+                                    uri: 'https://cdn-icons-png.flaticon.com/512/5362/5362947.png'
+                                }}
+                                style={{
+                                    width: wp(26), height: wp(25), borderRadius: 10, alignSelf: 'center', // Center the image horizontally
+                                    justifyContent: 'center',
+                                }}
+                            />
+                            <Text style={{ color: '#0064D2', fontSize: 18, fontWeight: 'bold', marginLeft: 36, marginTop: 10 }}>Open Chat</Text>
+                        </TouchableOpacity>
+                    </View>
 
                     <Text style={{ fontSize: wp(4), fontWeight: 'bold', marginBottom: -20 }} className="text-neutral-700 tracking-wide mb-2">Day 1 (15/12/2022)</Text>
 
