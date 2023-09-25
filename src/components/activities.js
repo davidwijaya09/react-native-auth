@@ -6,7 +6,7 @@ import { LinearGradient } from 'expo-linear-gradient'
 import { HeartIcon } from 'react-native-heroicons/solid';
 import { useNavigation } from '@react-navigation/native';
 import { activitiesDetails } from '../constants/itinerary';
-import { TrashIcon } from 'react-native-heroicons/outline';
+import { PencilIcon, PencilSquareIcon, TrashIcon } from 'react-native-heroicons/outline';
 
 export default function Activites() {
     const navigation = useNavigation();
@@ -28,7 +28,7 @@ export default function Activites() {
 }
 
 const ActivityCard = ({ item, navigation }) => {
-    const [isFavourite, toggleFavourite] = useState(false);
+    const [isDeleted, toogleDeleted] = useState(false);
     return (
         <TouchableOpacity
             onPress={() => navigation.navigate('ActivityDetail', { ...item })}
@@ -52,17 +52,32 @@ const ActivityCard = ({ item, navigation }) => {
 
 
             <TouchableOpacity
-                onPress={() => toggleFavourite(!isFavourite)}
+                onPress={() => toogleDeleted(!isDeleted)}
                 style={{
                     backgroundColor: 'rgba(255,255,255,0.4)',
                     borderRadius: wp(5),
                     padding: wp(2),
                     position: 'absolute',
-                    right: -80,
+                    right: -90,
                     bottom: 15,
                 }}>
-                <TrashIcon size={wp(5)} color={isFavourite ? "red" : "white"} />
+                <TrashIcon size={wp(5)} color={isDeleted ? "red" : "white"} />
             </TouchableOpacity>
+
+            <TouchableOpacity
+                onPress={() => navigation.navigate('EditItinerary', { /* pass any necessary parameters */ })}
+                style={{
+                    backgroundColor: 'rgba(255,255,255,0.4)',
+                    borderRadius: wp(5),
+                    padding: wp(2),
+                    position: 'absolute',
+                    right: -40,
+                    bottom: 15,
+                }}>
+                <PencilSquareIcon size={wp(5)} color="white"  />
+            </TouchableOpacity>
+
+
 
         </TouchableOpacity>
     )

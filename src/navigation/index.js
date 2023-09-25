@@ -12,6 +12,8 @@ import ExploreLayout from '../screen/ExploreLayout';
 import ItineraryLayout from '../screen/ItineraryLayout';
 import DestinationScreen from '../screen/DestinationScreen';
 import ItineraryDetScreen from '../screen/ItineraryDetScreen';
+import EditItinerary from '../screen/EdiItinerary';
+import { activitiesDetails } from '../constants/itinerary';
 
 const Stack = createStackNavigator();
 
@@ -30,6 +32,7 @@ export default function AppNavigation() {
         <Stack.Screen name="ItineraryLayout" component={ItineraryLayout} />
         <Stack.Screen name="Destination" component={DestinationScreen} />
         <Stack.Screen name="Itinerary" component={ItineraryDetScreen} />
+        <Stack.Screen name="EditItinerary" component={EditItinerary} />
       </Stack.Navigator>
     </NavigationContainer>
   )
